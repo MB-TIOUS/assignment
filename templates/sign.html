@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/auth.css" >
+    </head>
+
+<body>
+<div>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-4 " role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+    {% endif %}
+    </div>
+<div id="abc" class="container my-4 text-center " style="display: flex;justify-content: center; align-items:center;">
+<main class="form-signin" style="margin: auto;padding: 15px;max-width: 330px;width: 100%;">
+  <form method="POST" action="signup">{% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal">Please SignUp</h1>
+    <input type="text" name="username" id="inputUser" class="form-control" placeholder="User Name" required autofocus>
+    <br/>
+    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <br/>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <br/>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+    <br/>
+    <br/>
+    <div>
+      <label>
+        For Login<a href="index"> Log In</a>
+      </label>
+    </div>
+  </form>
+</main>
+</div>
+
+</body>
+</html>
